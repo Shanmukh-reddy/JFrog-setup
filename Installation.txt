@@ -1,0 +1,16 @@
+For Docker 
+    $ mkdir -p $JFROG_HOME/artifactory/var/etc/
+    $ cd $JFROG_HOME/artifactory/var/etc/
+    $ touch ./system.yaml
+    $ chown -R 1030:1030 $JFROG_HOME/artifactory/var
+    $ chmod -R 777 $JFROG_HOME/artifactory/var
+    $ docker run --name artifactory -v $JFROG_HOME/artifactory/var/:/var/opt/jfrog/artifactory -d -p 8081:8081 -p 8082:8082 releases-docker.jfrog.io/jfrog/artifactory-pro:latest
+        > http://localhost:8082/ui/
+            > login -u admin -p password 
+            > create repositories for go and docker 
+            > skip 
+    > Creat trail account 
+        >  https://temp-mail.org
+                you will get two licences for artifactory and Xray
+
+

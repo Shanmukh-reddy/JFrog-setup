@@ -1,0 +1,20 @@
+$ cd /opt/
+$ wget https://go.dev/dl/go1.19.linux-amd64.tar.gz
+$ tar -xvzf go1.19.linux-amd64.tar.gz
+
+Jfrog Cli 
+    Debain
+        sudo wget -qO - https://releases.jfrog.io/artifactory/jfrog-gpg-public/jfrog_public_gpg.key | sudo apt-key add -
+        sudo echo "deb https://releases.jfrog.io/artifactory/jfrog-debs xenial contrib" | sudo tee -a /etc/apt/sources.list;
+        sudo apt update;
+        sudo apt install -y jfrog-cli-v2-jf;
+    Centos
+        echo "[jfrog-cli]" > jfrog-cli.repo;
+        echo "name=jfrog-cli" >> jfrog-cli.repo;
+        echo "baseurl=https://releases.jfrog.io/artifactory/jfrog-rpms" >> jfrog-cli.repo;
+        echo "enabled=1" >> jfrog-cli.repo;
+        rpm --import https://releases.jfrog.io/artifactory/jfrog-gpg-public/jfrog_public_gpg.key
+        sudo mv jfrog-cli.repo /etc/yum.repos.d/;
+        yum install -y jfrog-cli-v2-jf;
+    Docker 
+        docker run releases-docker.jfrog.io/jfrog/jfrog-cli-full-v2-jf jf -v (No need)
